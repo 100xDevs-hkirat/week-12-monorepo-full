@@ -17,11 +17,11 @@ jobs:
       uses: actions/checkout@v2
 
     - name: SSH and deploy
-          env:
-            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          run: |
-            echo "$SSH_PRIVATE_KEY" > keyfile
-            chmod 600 keyfile
-            mkdir -p ~/.ssh
-            cp known_hosts ~/.ssh/known_hosts
-            ssh -t -i keyfile ubuntu@ec2-54-215-220-243.us-west-1.compute.amazonaws.com "sudo bash /home/ubuntu/week-12-monorepo-full/apps/express-backend/deploy.sh"
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: |
+        echo "$SSH_PRIVATE_KEY" > keyfile
+        chmod 600 keyfile
+        mkdir -p ~/.ssh
+        cp known_hosts ~/.ssh/known_hosts
+        ssh -t -i keyfile ubuntu@ec2-54-215-220-243.us-west-1.compute.amazonaws.com "sudo bash /home/ubuntu/week-12-monorepo-full/apps/express-backend/deploy.sh"
