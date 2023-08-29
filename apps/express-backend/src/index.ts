@@ -6,7 +6,7 @@ import { UserInput } from "common"
 app.get('/', (req: any, res: any) => {
   let parsedUser = UserInput.safeParse(req.body);
   if (!parsedUser.success) {
-    res.send('Incorrect input2!')
+    res.send('Incorrect input for harkirat!')
     return;
   }
   res.send('correct input!')
